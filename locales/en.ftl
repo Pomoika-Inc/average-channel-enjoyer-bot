@@ -6,7 +6,7 @@ setcommands-command-description = Set bot commands
 
 ## Welcome Feature
 
-welcome = Welcome!
+welcome = Welcome! Please, login with TON wallet
 
 ## Language Feature
 
