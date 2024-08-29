@@ -16,6 +16,10 @@ function getPrivateChatCommands(localeCode: string): BotCommand[] {
       command: 'start',
       description: i18n.t(localeCode, 'start-command-description'),
     },
+    {
+      command: 'login',
+      description: i18n.t(localeCode, 'login-command-description'),
+    },
   ]
 }
 
@@ -53,9 +57,7 @@ export async function setCommandsHandler(ctx: CommandContext<Context>) {
       ctx.api.setMyCommands(
         [
           ...getPrivateChatCommands(code),
-          ...(isMultipleLocales
-            ? [getLanguageCommand(DEFAULT_LANGUAGE_CODE)]
-            : []),
+          ...(isMultipleLocales ? [getLanguageCommand(DEFAULT_LANGUAGE_CODE)] : []),
         ],
         {
           language_code: code as LanguageCode,

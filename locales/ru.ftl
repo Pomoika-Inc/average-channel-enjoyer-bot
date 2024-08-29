@@ -3,6 +3,7 @@
 start-command-description = Запустить бота
 language-command-description = Сменить язык
 setcommands-command-description = Настроить комманды бота
+login-command-description = Залогиниться с TON кошельком
 
 ## Welcome Feature
 
@@ -12,6 +13,10 @@ welcome = Привет! Залогинься с TON кошельком, пожа
 
 language-select = Пожалуйста, выберите язык
 language-changed = Язык успешно изменен!
+
+## Login Feature
+
+login = Залогинься с TON кошельком по кнопке ниже, пж
 
 ## Admin Feature
 

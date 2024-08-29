@@ -1,16 +1,6 @@
-// import type { Context } from '#root/bot/context.js'
+import { Keyboard } from 'grammy'
+import type { Context } from '#root/bot/context.js'
 
-// export async function createMiniAppKeyboard(ctx: Context) {
-
-//     return Keyboard.from(
-//       chunk(
-//         i18n.locales.map(localeCode => ({
-//           text: getLabel(localeCode),
-//           callback_data: changeLanguageData.pack({
-//             code: localeCode,
-//           }),
-//         })),
-//         2,
-//       ),
-//     )
-//   }
+export function createMiniAppKeyboard(ctx: Context) {
+  return new Keyboard().webApp('Login', `${ctx.config.webAppBaseUrl}?login=true`)
+}
