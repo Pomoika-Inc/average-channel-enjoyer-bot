@@ -50,7 +50,7 @@ export function createBot(token: string, dependencies: Dependencies, options: Op
   bot.api.config.use(parseMode('HTML'))
 
   if (config.isPollingMode)
-    protectedBot.use(sequentialize(getSessionKey))
+    protectedBot.use(sequentialize(ctx => ctx.from?.id.toString()))
   if (config.isDebug)
     protectedBot.use(updateLogger())
   protectedBot.use(autoChatAction(bot.api))

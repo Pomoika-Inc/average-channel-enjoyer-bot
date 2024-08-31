@@ -3,10 +3,15 @@
 start-command-description = Start the bot
 language-command-description = Change language
 setcommands-command-description = Set bot commands
+login-command-description = Login with TON wallet
 
 ## Welcome Feature
 
-welcome = Welcome!
+welcome = Welcome! Please, login with TON wallet
+
+## Login Feature
+
+login = Login with TON wallet by the button below
 
 ## Language Feature
 
