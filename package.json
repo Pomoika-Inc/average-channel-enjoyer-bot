@@ -1,13 +1,13 @@
 {
-  "name": "telegram-bot-template",
+  "name": "average-channel-enjoyer-bot",
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "description": "Telegram bot starter template",
+  "description": "Telegram bot for the Average Channel Enjoyer project",
   "imports": {
     "#root/*": "./build/src/*"
   },
-  "author": "deptyped <deptyped@gmail.com>",
+  "author": "Pomoika Inc.",
   "license": "MIT",
   "engines": {
     "node": ">=20.0.0",
