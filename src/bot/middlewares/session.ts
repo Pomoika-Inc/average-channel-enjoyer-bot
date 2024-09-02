@@ -30,15 +30,23 @@ export interface GroupSessionData {
 }
 
 export function getUserSessionKey(ctx: Omit<Context, 'session'>) {
-  return ctx.from?.id.toString()
+  return userCondition(ctx) ? ctx.from?.id.toString() : undefined
 }
 
 export function getUserInGroupSessionKey(ctx: Omit<Context, 'session'>) {
-  return `${ctx.from?.id.toString()}/${ctx.chat?.id.toString()}`
+  return userCondition(ctx) && groupCondition(ctx) ? `${ctx.from?.id.toString()}/${ctx.chat?.id.toString()}` : undefined
 }
 
 export function getGroupSessionKey(ctx: Omit<Context, 'session'>) {
-  return ctx.chat?.id.toString()
+  return groupCondition(ctx) ? ctx.chat?.id.toString() : undefined
+}
+
+function userCondition(ctx: Omit<Context, 'session'>): boolean {
+  return !ctx.from?.is_bot
+}
+
+function groupCondition(ctx: Omit<Context, 'session'>): boolean {
+  return ctx.message?.reply_to_message?.sender_chat?.type === 'channel'
 }
 
 export function createSession(ctx: Context): Middleware<Context> {
@@ -47,41 +55,29 @@ export function createSession(ctx: Context): Middleware<Context> {
     user: {
       getSessionKey: getUserSessionKey,
       storage: new MemorySessionStorage<UserSessionData | undefined>(),
-      initial: () => {
-        if (!ctx.from?.is_bot) {
-          return {
-            login: ctx.from?.username ?? '',
-            active: true,
-          }
-        }
-      },
+      initial: () => ({
+        login: ctx.from?.username ?? '',
+        active: true,
+      }),
     },
     userInGroup: {
       getSessionKey: getUserInGroupSessionKey,
       storage: new MemorySessionStorage<UserInGroupSessionData | undefined>(),
-      initial: () => {
-        if (!ctx.from?.is_bot && ctx.message?.reply_to_message?.sender_chat?.type === 'channel') {
-          return {
-            admin: false,
-            presavedJettons: 0,
-            active: true,
-          }
-        }
-      },
+      initial: () => ({
+        admin: false,
+        presavedJettons: 0,
+        active: true,
+      }),
     },
     group: {
       getSessionKey: getGroupSessionKey,
       storage: new MemorySessionStorage<GroupSessionData | undefined>(),
-      initial: () => {
-        if (ctx.message?.reply_to_message?.sender_chat?.type === 'channel') {
-          return {
-            channel: ctx.message.reply_to_message.sender_chat.id,
-            adminReactionRatio: 0,
-            badReactions: [],
-            active: true,
-          }
-        }
-      },
+      initial: () => ({
+        channel: ctx.message?.reply_to_message?.sender_chat?.id ?? -1,
+        adminReactionRatio: 0,
+        badReactions: [],
+        active: true,
+      }),
     },
   })
 }
