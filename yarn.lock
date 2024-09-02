@@ -346,15 +346,15 @@
   dependencies:
     abort-controller "^3.0.0"
 
-"@grammyjs/types@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.11.0.tgz#d134ebdf765025109feb2aedec13d90a10712f8a"
-  integrity sha512-LBIH8VnSEoeOHJxfvNFQ8QEsRip7D6GhY7y0evMl9W5FQ8p3q3bcYrtO2awxo1rSpi9RcoCKX1icQ60kXkp7+w==
-
 "@grammyjs/types@3.11.1":
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.11.1.tgz#2bb1cf5c0d006ea22bcbff351073f2b864685d29"
   integrity sha512-EXZnfV10W2YFrv3IAKR9jsuo39bHBBaNerKYIUEvofEUxnLHxi/HL0YwirZEunR2viiOFdu70Bkk3berQYeguw==
+
+"@grammyjs/types@3.13.0":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.13.0.tgz#3316a809b4faf6cc61cff0c7d7a5a671ec0bd776"
+  integrity sha512-Oyq6fBuVPyX6iWvxT/0SxJvNisC9GHUEkhZ60qJBHRmwNX4hIcOfhrNEahicn3K9SYyreGPVw3d9wlLRds83cw==
 
 "@hono/node-server@1.12.2":
   version "1.12.2"
@@ -1639,12 +1639,12 @@ grammy-guard@0.5.0:
   dependencies:
     callback-data "^1.0.0"
 
-grammy@1.27.0:
-  version "1.27.0"
-  resolved "https://registry.yarnpkg.com/grammy/-/grammy-1.27.0.tgz#784879f4b8dde558ea34dde9321b9679a8a7027c"
-  integrity sha512-gonaKzEEJ+yjpqb/eGuIi2hsCRd+Oeu9fU4AzpvnrMf9U5ju/oRQ+Vnhx3sOtvO+kvwpeRJ4pv577I5SoMcQ0Q==
+grammy@1.29.0:
+  version "1.29.0"
+  resolved "https://registry.yarnpkg.com/grammy/-/grammy-1.29.0.tgz#5413af877fc031c4f4a7db78dccb3717fa2209dc"
+  integrity sha512-lj/6K6TGmVAdOpHj0PVFK7N37EGe76bpkbgvN+yqCqXYBIwuQosTe7qLhCls7/4pbDxf2+UVSqSXcOILgGGKWQ==
   dependencies:
-    "@grammyjs/types" "3.11.0"
+    "@grammyjs/types" "3.13.0"
     abort-controller "^3.0.0"
     debug "^4.3.4"
     node-fetch "^2.7.0"
