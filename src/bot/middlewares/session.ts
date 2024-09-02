@@ -1,4 +1,4 @@
-import { MemorySessionStorage, type Middleware, session as createSession } from 'grammy'
+import { MemorySessionStorage, type Middleware, session } from 'grammy'
 import type { Context } from '#root/bot/context.js'
 
 // type Options = Pick<SessionOptions<SessionData, Context>, 'getSessionKey' | 'storage'>
@@ -41,45 +41,47 @@ export function getGroupSessionKey(ctx: Omit<Context, 'session'>) {
   return ctx.chat?.id.toString()
 }
 
-export function session(): Middleware<Context> {
-  return createSession({
+export function createSession(ctx: Context): Middleware<Context> {
+  return session({
     type: 'multi',
     user: {
       getSessionKey: getUserSessionKey,
       storage: new MemorySessionStorage<UserSessionData | undefined>(),
+      initial: () => {
+        if (!ctx.from?.is_bot) {
+          return {
+            login: ctx.from?.username ?? '',
+            active: true,
+          }
+        }
+      },
     },
     userInGroup: {
       getSessionKey: getUserInGroupSessionKey,
       storage: new MemorySessionStorage<UserInGroupSessionData | undefined>(),
+      initial: () => {
+        if (!ctx.from?.is_bot && ctx.message?.reply_to_message?.sender_chat?.type === 'channel') {
+          return {
+            admin: false,
+            presavedJettons: 0,
+            active: true,
+          }
+        }
+      },
     },
     group: {
       getSessionKey: getGroupSessionKey,
       storage: new MemorySessionStorage<GroupSessionData | undefined>(),
+      initial: () => {
+        if (ctx.message?.reply_to_message?.sender_chat?.type === 'channel') {
+          return {
+            channel: ctx.message.reply_to_message.sender_chat.id,
+            adminReactionRatio: 0,
+            badReactions: [],
+            active: true,
+          }
+        }
+      },
     },
   })
-}
-
-export function initSession(): Middleware<Context> {
-  return (ctx) => {
-    if (!ctx.from?.is_bot) {
-      ctx.session.user = {
-        login: ctx.from?.username ?? '',
-        active: true,
-      }
-    }
-
-    if (ctx.message?.reply_to_message?.sender_chat?.type === 'channel') {
-      ctx.session.userInGroup = {
-        admin: false,
-        presavedJettons: 0,
-        active: true,
-      }
-      ctx.session.group = {
-        channel: ctx.message.reply_to_message.sender_chat.id,
-        adminReactionRatio: 0,
-        badReactions: [],
-        active: true,
-      }
-    }
-  }
 }

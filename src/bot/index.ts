@@ -11,7 +11,7 @@ import { unhandledFeature } from '#root/bot/features/unhandled.js'
 import { errorHandler } from '#root/bot/handlers/error.js'
 import { updateLogger } from '#root/bot/middlewares/update-logger.js'
 import type { SessionData } from '#root/bot/middlewares/session.js'
-import { initSession, session } from '#root/bot/middlewares/session.js'
+import { createSession } from '#root/bot/middlewares/session.js'
 import type { Context } from '#root/bot/context.js'
 import { createContextConstructor } from '#root/bot/context.js'
 import { i18n, isMultipleLocales } from '#root/bot/i18n.js'
@@ -53,7 +53,7 @@ export function createBot(token: string, dependencies: Dependencies, options: Op
   protectedBot.use(autoChatAction(bot.api))
   protectedBot.use(hydrateReply)
   protectedBot.use(hydrate())
-  protectedBot.use(session(), initSession())
+  protectedBot.lazy(ctx => createSession(ctx))
   protectedBot.use(i18n)
 
   // Handlers
