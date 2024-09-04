@@ -10,8 +10,9 @@ import { languageFeature } from '#root/bot/features/language.js'
 import { unhandledFeature } from '#root/bot/features/unhandled.js'
 import { errorHandler } from '#root/bot/handlers/error.js'
 import { updateLogger } from '#root/bot/middlewares/update-logger.js'
-import { session } from '#root/bot/middlewares/session.js'
-import type { Context, SessionData } from '#root/bot/context.js'
+import type { SessionData } from '#root/bot/middlewares/session.js'
+import { createSession } from '#root/bot/middlewares/session.js'
+import type { Context } from '#root/bot/context.js'
 import { createContextConstructor } from '#root/bot/context.js'
 import { i18n, isMultipleLocales } from '#root/bot/i18n.js'
 import type { Logger } from '#root/logger.js'
@@ -25,10 +26,6 @@ interface Dependencies {
 interface Options {
   botSessionStorage?: StorageAdapter<SessionData>
   botConfig?: Omit<BotConfig<Context>, 'ContextConstructor'>
-}
-
-function getSessionKey(ctx: Omit<Context, 'session'>) {
-  return ctx.chat?.id.toString()
 }
 
 export function createBot(token: string, dependencies: Dependencies, options: Options = {}) {
@@ -56,7 +53,7 @@ export function createBot(token: string, dependencies: Dependencies, options: Op
   protectedBot.use(autoChatAction(bot.api))
   protectedBot.use(hydrateReply)
   protectedBot.use(hydrate())
-  protectedBot.use(session({ getSessionKey, storage: options.botSessionStorage }))
+  protectedBot.lazy(ctx => createSession(ctx))
   protectedBot.use(i18n)
 
   // Handlers
