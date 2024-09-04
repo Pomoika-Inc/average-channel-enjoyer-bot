@@ -346,11 +346,6 @@
   dependencies:
     abort-controller "^3.0.0"
 
-"@grammyjs/types@3.11.1":
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.11.1.tgz#2bb1cf5c0d006ea22bcbff351073f2b864685d29"
-  integrity sha512-EXZnfV10W2YFrv3IAKR9jsuo39bHBBaNerKYIUEvofEUxnLHxi/HL0YwirZEunR2viiOFdu70Bkk3berQYeguw==
-
 "@grammyjs/types@3.13.0":
   version "3.13.0"
   resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.13.0.tgz#3316a809b4faf6cc61cff0c7d7a5a671ec0bd776"
