@@ -9,7 +9,7 @@ const baseConfigSchema = v.object({
   botAllowedUpdates: v.optional(v.pipe(v.string(), v.transform(JSON.parse), v.array(v.picklist(API_CONSTANTS.ALL_UPDATE_TYPES))), '[]'),
   botAdmins: v.optional(v.pipe(v.string(), v.transform(JSON.parse), v.array(v.number())), '[]'),
   webAppBaseUrl: v.pipe(v.string(), v.url()),
-  tonChainId: v.pipe(v.number(), v.picklist([0, 1])),
+  tonChainId: v.pipe(v.number(), v.picklist([0, -1])),
 })
 
 const configSchema = v.variant('botMode', [
