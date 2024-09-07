@@ -8,15 +8,15 @@ login-command-description = Залогиниться с TON кошельком
 ## Welcome Feature
 
 welcome = Привет! Залогинься с TON кошельком, пожалуйста 
+welcome-back = Привет, мы же знакомы, верно?
+
+login-successfully = Твой адрес кошелька принят. Добро пожаловать!
+login-duplicate = Эй, чем это ты там занимаешься?
 
 ## Language Feature
 
 language-select = Пожалуйста, выберите язык
 language-changed = Язык успешно изменен!
-
-## Login Feature
-
-login = Залогинься с TON кошельком по кнопке ниже, пж
 
 ## Admin Feature
 
