@@ -1,4 +1,5 @@
 import type { CommandContext } from 'grammy/web'
+import { Address } from '@ton/core'
 import type { Context } from '#root/bot/context.js'
 import { createMiniAppLoginKeyboard } from '#root/bot/keyboards/mini-app.js'
 
@@ -12,14 +13,18 @@ export async function handleStartCommand(ctx: CommandContext<Context>) {
 }
 
 export async function handleWebAppData(ctx: Context) {
-  let responseKey
-  if (ctx.session.user) {
+  let responseKey = 'login-duplicate'
+  if (ctx.session.user && ctx.message?.web_app_data?.data) {
     if (ctx.session.user.walletAddress === undefined) {
-      // TODO: check if the wallet address is valid
-      ctx.session.user.walletAddress = ctx.message?.web_app_data?.data
-      responseKey = 'login-successfully'
+      const address = Address.parse(ctx.message?.web_app_data?.data)
+      if (address.workChain !== ctx.config.tonChainId) {
+        responseKey = 'login-wrong-chain'
+      }
+      else {
+        ctx.session.user.walletAddress = address.toString()
+        responseKey = 'login-successfully'
+      }
     }
-    responseKey = 'login-duplicate'
     return await ctx.reply(ctx.t(responseKey), { reply_markup: undefined })
   }
 }

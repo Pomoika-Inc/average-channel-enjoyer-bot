@@ -11,6 +11,7 @@ welcome = Hello! Please, login with TON wallet
 welcome-back = Hey, I know you, right?
 
 login-successfully = Your wallet address has been accepted. Welcome aboard!
+login-wrong-chain = Oops, wrong workchain 🫨
 login-duplicate = Oi, what are you doin'?
 
 ## Language Feature
