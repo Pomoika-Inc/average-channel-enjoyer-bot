@@ -1,7 +1,7 @@
 import type { CommandContext } from 'grammy/web'
 import { Address } from '@ton/core'
 import type { Context } from '#root/bot/context.js'
-import { createMiniAppLoginKeyboard } from '#root/bot/keyboards/mini-app.js'
+import { createMiniAppLoginKeyboard, removeKeyboard } from '#root/bot/keyboards/mini-app.js'
 
 export async function handleStartCommand(ctx: CommandContext<Context>) {
   if (ctx.session.user?.walletAddress === undefined) {
@@ -9,7 +9,7 @@ export async function handleStartCommand(ctx: CommandContext<Context>) {
       reply_markup: createMiniAppLoginKeyboard(ctx),
     })
   }
-  return await ctx.reply(ctx.t('welcome-back'), { reply_markup: undefined })
+  return await ctx.reply(ctx.t('welcome-back', { name: ctx.from?.first_name ?? 'USERNAME' }), removeKeyboard())
 }
 
 export async function handleWebAppData(ctx: Context) {
@@ -25,6 +25,6 @@ export async function handleWebAppData(ctx: Context) {
         responseKey = 'login-successfully'
       }
     }
-    return await ctx.reply(ctx.t(responseKey), { reply_markup: undefined })
+    return await ctx.reply(ctx.t(responseKey), removeKeyboard())
   }
 }
