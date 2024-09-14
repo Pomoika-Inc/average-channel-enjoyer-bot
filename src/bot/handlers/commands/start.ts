@@ -13,18 +13,20 @@ export async function handleStartCommand(ctx: CommandContext<Context>) {
 }
 
 export async function handleWebAppData(ctx: Context) {
-  let responseKey = 'login-duplicate'
-  if (ctx.session.user && ctx.message?.web_app_data?.data) {
-    if (ctx.session.user.walletAddress === undefined) {
-      const address = Address.parse(ctx.message?.web_app_data?.data)
-      if (address.workChain !== ctx.config.tonChainId) {
-        responseKey = 'login-wrong-chain'
-      }
-      else {
-        ctx.session.user.walletAddress = address.toString()
-        responseKey = 'login-successfully'
-      }
-    }
-    return await ctx.reply(ctx.t(responseKey), removeKeyboard())
+  if (!ctx.session.user || !ctx.message?.web_app_data?.data) {
+    return
   }
+
+  let responseKey = 'login-duplicate'
+  if (ctx.session.user.walletAddress === undefined) {
+    const address = Address.parse(ctx.message?.web_app_data?.data)
+    if (address.workChain !== ctx.config.tonChainId) {
+      responseKey = 'login-wrong-chain'
+    }
+    else {
+      ctx.session.user.walletAddress = address.toString()
+      responseKey = 'login-successfully'
+    }
+  }
+  return await ctx.reply(ctx.t(responseKey), removeKeyboard())
 }
