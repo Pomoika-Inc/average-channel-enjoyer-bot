@@ -2,17 +2,20 @@
 
 import process from 'node:process'
 import { type RunnerHandle, run } from '@grammyjs/runner'
+import { MemorySessionStorage } from 'grammy'
+import type { GroupSessionData, UserInGroupSessionData, UserSessionData } from './bot/middlewares/session.js'
+import { createServer, createServerManager } from './server/index.js'
 import { logger } from '#root/logger.js'
+import type { BotOptions } from '#root/bot/index.js'
 import { createBot } from '#root/bot/index.js'
 import type { PollingConfig, WebhookConfig } from '#root/config.js'
 import { config } from '#root/config.js'
-import { createServer, createServerManager } from '#root/server/index.js'
 
 async function startPolling(config: PollingConfig) {
   const bot = createBot(config.botToken, {
     config,
     logger,
-  })
+  }, createBotSessionStorage())
   let runner: undefined | RunnerHandle
 
   // graceful shutdown
@@ -41,11 +44,22 @@ async function startPolling(config: PollingConfig) {
   })
 }
 
+function createBotSessionStorage(): BotOptions {
+  return {
+    botSessionStorage: {
+      type: 'multi',
+      user: { storage: new MemorySessionStorage<UserSessionData | undefined>() },
+      userInGroup: { storage: new MemorySessionStorage<UserInGroupSessionData | undefined>() },
+      group: { storage: new MemorySessionStorage<GroupSessionData | undefined>() },
+    },
+  }
+}
+
 async function startWebhook(config: WebhookConfig) {
   const bot = createBot(config.botToken, {
     config,
     logger,
-  })
+  }, createBotSessionStorage())
   const server = createServer({
     bot,
     config,

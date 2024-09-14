@@ -7,11 +7,12 @@ login-command-description = Login with TON wallet
 
 ## Welcome Feature
 
-welcome = Welcome! Please, login with TON wallet
+welcome = Hello! Please, login with TON wallet
+welcome-back = Hey, I know you! { $name }, right?
 
-## Login Feature
-
-login = Login with TON wallet by the button below
+login-successfully = Your wallet address has been accepted. Welcome aboard!
+login-wrong-chain = Oops, wrong workchain 🫨
+login-duplicate = Oi, what are you doin'?
 
 ## Language Feature
 

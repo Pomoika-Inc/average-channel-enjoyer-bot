@@ -1,7 +1,5 @@
-import { MemorySessionStorage, type Middleware, session } from 'grammy'
+import { type Middleware, type MultiSessionOptions, session } from 'grammy'
 import type { Context } from '#root/bot/context.js'
-
-// type Options = Pick<SessionOptions<SessionData, Context>, 'getSessionKey' | 'storage'>
 
 export interface SessionData {
   user?: UserSessionData
@@ -49,12 +47,12 @@ function groupCondition(ctx: Omit<Context, 'session'>): boolean {
   return ctx.message?.reply_to_message?.sender_chat?.type === 'channel'
 }
 
-export function createSession(ctx: Context): Middleware<Context> {
+export function createSession(ctx: Context, options: MultiSessionOptions<SessionData, Context>): Middleware<Context> {
   return session({
     type: 'multi',
     user: {
       getSessionKey: getUserSessionKey,
-      storage: new MemorySessionStorage<UserSessionData | undefined>(),
+      storage: options.user?.storage,
       initial: () => ({
         login: ctx.from?.username ?? '',
         active: true,
@@ -62,7 +60,7 @@ export function createSession(ctx: Context): Middleware<Context> {
     },
     userInGroup: {
       getSessionKey: getUserInGroupSessionKey,
-      storage: new MemorySessionStorage<UserInGroupSessionData | undefined>(),
+      storage: options.userInGroup?.storage,
       initial: () => ({
         admin: false,
         presavedJettons: 0,
@@ -71,7 +69,7 @@ export function createSession(ctx: Context): Middleware<Context> {
     },
     group: {
       getSessionKey: getGroupSessionKey,
-      storage: new MemorySessionStorage<GroupSessionData | undefined>(),
+      storage: options.group?.storage,
       initial: () => ({
         channel: ctx.message?.reply_to_message?.sender_chat?.id ?? -1,
         adminReactionRatio: 0,
