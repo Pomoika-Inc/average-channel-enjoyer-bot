@@ -358,6 +358,11 @@
   resolved "https://registry.npmjs.org/@grammyjs/types/-/types-3.13.0.tgz"
   integrity sha512-Oyq6fBuVPyX6iWvxT/0SxJvNisC9GHUEkhZ60qJBHRmwNX4hIcOfhrNEahicn3K9SYyreGPVw3d9wlLRds83cw==
 
+"@grammyjs/types@3.14.0":
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.14.0.tgz#41357af98551da47ef151b7f6cff774ac91fa654"
+  integrity sha512-uUVikYAiHNU8CvkeQ6YA/QPbMLgTTpFVLp83VkXCs423w6cDsvfdA6bcrQJGUnc/Q6zHQXXZUftXDYl2b/6L4A==
+
 "@hono/node-server@1.13.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@hono/node-server/-/node-server-1.13.0.tgz#c7456bdd5a5b21f0ad759f46ba5a1cc3f8411d5e"
