@@ -363,10 +363,10 @@
   resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.14.0.tgz#41357af98551da47ef151b7f6cff774ac91fa654"
   integrity sha512-uUVikYAiHNU8CvkeQ6YA/QPbMLgTTpFVLp83VkXCs423w6cDsvfdA6bcrQJGUnc/Q6zHQXXZUftXDYl2b/6L4A==
 
-"@hono/node-server@1.13.5":
-  version "1.13.5"
-  resolved "https://registry.yarnpkg.com/@hono/node-server/-/node-server-1.13.5.tgz#94d055c3e4007cbb5b9768c8234a58f1af6555f9"
-  integrity sha512-lSo+CFlLqAFB4fX7ePqI9nauEn64wOfJHAfc9duYFTvAG3o416pC0nTGeNjuLHchLedH+XyWda5v79CVx1PIjg==
+"@hono/node-server@1.13.6":
+  version "1.13.6"
+  resolved "https://registry.yarnpkg.com/@hono/node-server/-/node-server-1.13.6.tgz#c337af782ea312e890c3b5de936b1484b0c3b0e5"
+  integrity sha512-Y2ivw4UmLIBKfzvkFgcsrhc0GLn272diGjlnKOF9T1OiY6ud4RaVO8FKEnifNkuU7meOeCU371/8fmhgeYf7Lw==
 
 "@humanfs/core@^0.19.1":
   version "0.19.1"
