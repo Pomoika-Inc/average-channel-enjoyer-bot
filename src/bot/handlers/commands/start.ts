@@ -3,7 +3,6 @@ import type { CommandContext } from 'grammy/web'
 import { createMiniAppLoginKeyboard, createStoreMenuButton, removeKeyboard } from '#root/bot/keyboards/mini-app.js'
 import { Address } from '@ton/core'
 
-
 export async function handleStartCommand(ctx: CommandContext<Context>) {
   if (ctx.session.user?.walletAddress === undefined) {
     return await ctx.reply(ctx.t('welcome'), {
