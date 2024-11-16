@@ -1,7 +1,7 @@
-import { Composer } from 'grammy'
-import { handleStartCommand, handleWebAppData } from '../handlers/commands/start.js'
 import type { Context } from '#root/bot/context.js'
 import { logHandle } from '#root/bot/helpers/logging.js'
+import { Composer } from 'grammy'
+import { handleStartCommand, handleWebAppData } from '../handlers/commands/start.js'
 
 const composer = new Composer<Context>()
 
