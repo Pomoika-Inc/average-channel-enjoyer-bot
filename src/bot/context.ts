@@ -1,12 +1,12 @@
-import { type Api, Context as DefaultContext, type SessionFlavor } from 'grammy'
+import type { Config } from '#root/config.js'
+import type { Logger } from '#root/logger.js'
 import type { AutoChatActionFlavor } from '@grammyjs/auto-chat-action'
 import type { HydrateFlavor } from '@grammyjs/hydrate'
 import type { I18nFlavor } from '@grammyjs/i18n'
 import type { ParseModeFlavor } from '@grammyjs/parse-mode'
 import type { Update, UserFromGetMe } from 'grammy/types'
 import type { SessionData } from './middlewares/session.js'
-import type { Logger } from '#root/logger.js'
-import type { Config } from '#root/config.js'
+import { type Api, Context as DefaultContext, type SessionFlavor } from 'grammy'
 
 interface ExtendedContextFlavor {
   logger: Logger

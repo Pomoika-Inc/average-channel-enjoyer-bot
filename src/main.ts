@@ -1,15 +1,15 @@
 #!/usr/bin/env tsx
 
-import process from 'node:process'
-import { type RunnerHandle, run } from '@grammyjs/runner'
-import { MemorySessionStorage } from 'grammy'
-import type { GroupSessionData, UserInGroupSessionData, UserSessionData } from './bot/middlewares/session.js'
-import { createServer, createServerManager } from './server/index.js'
-import { logger } from '#root/logger.js'
 import type { BotOptions } from '#root/bot/index.js'
-import { createBot } from '#root/bot/index.js'
 import type { PollingConfig, WebhookConfig } from '#root/config.js'
+import type { GroupSessionData, UserInGroupSessionData, UserSessionData } from './bot/middlewares/session.js'
+import process from 'node:process'
+import { createBot } from '#root/bot/index.js'
 import { config } from '#root/config.js'
+import { logger } from '#root/logger.js'
+import { run, type RunnerHandle } from '@grammyjs/runner'
+import { MemorySessionStorage } from 'grammy'
+import { createServer, createServerManager } from './server/index.js'
 
 async function startPolling(config: PollingConfig) {
   const bot = createBot(config.botToken, {
@@ -99,9 +99,9 @@ async function startWebhook(config: WebhookConfig) {
 
 try {
   if (config.isWebhookMode)
-    await startWebhook(config)
+    startWebhook(config)
   else if (config.isPollingMode)
-    await startPolling(config)
+    startPolling(config)
 }
 catch (error) {
   logger.error(error)
