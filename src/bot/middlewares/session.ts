@@ -55,7 +55,7 @@ export function createSession(ctx: Context, options: MultiSessionOptions<Session
       storage: options.user?.storage,
       initial: () => ({
         login: ctx.from?.username ?? '',
-        active: true,
+        active: false,
       }),
     },
     userInGroup: {
