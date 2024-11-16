@@ -1,7 +1,7 @@
-import type { CommandContext } from 'grammy/web'
-import { Address } from '@ton/core'
 import type { Context } from '#root/bot/context.js'
+import type { CommandContext } from 'grammy/web'
 import { createMiniAppLoginKeyboard, removeKeyboard } from '#root/bot/keyboards/mini-app.js'
+import { Address } from '@ton/core'
 
 export async function handleStartCommand(ctx: CommandContext<Context>) {
   if (ctx.session.user?.walletAddress === undefined) {
