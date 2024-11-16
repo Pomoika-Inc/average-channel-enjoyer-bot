@@ -1,5 +1,5 @@
-import { type Middleware, type MultiSessionOptions, session } from 'grammy'
 import type { Context } from '#root/bot/context.js'
+import { type Middleware, type MultiSessionOptions, session } from 'grammy'
 
 export interface SessionData {
   user?: UserSessionData
