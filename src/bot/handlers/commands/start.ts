@@ -1,6 +1,6 @@
 import type { Context } from '#root/bot/context.js'
 import type { CommandContext } from 'grammy/web'
-import { createMiniAppLoginKeyboard, removeKeyboard } from '#root/bot/keyboards/mini-app.js'
+import { createMiniAppLoginKeyboard, createStoreMenuButton, removeKeyboard } from '#root/bot/keyboards/mini-app.js'
 import { Address } from '@ton/core'
 
 export async function handleStartCommand(ctx: CommandContext<Context>) {
@@ -25,7 +25,9 @@ export async function handleWebAppData(ctx: Context) {
     }
     else {
       ctx.session.user.walletAddress = address.toString()
+      ctx.session.user.active = true
       responseKey = 'login-successfully'
+      createStoreMenuButton(ctx)
     }
   }
   return await ctx.reply(ctx.t(responseKey), removeKeyboard())
