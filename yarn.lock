@@ -378,15 +378,15 @@
   dependencies:
     abort-controller "^3.0.0"
 
-"@grammyjs/types@3.14.0":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.14.0.tgz#41357af98551da47ef151b7f6cff774ac91fa654"
-  integrity sha512-uUVikYAiHNU8CvkeQ6YA/QPbMLgTTpFVLp83VkXCs423w6cDsvfdA6bcrQJGUnc/Q6zHQXXZUftXDYl2b/6L4A==
-
 "@grammyjs/types@3.15.0":
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.15.0.tgz#526e91fe1ef1a3ccaa72084cb3e9628e4440bd14"
   integrity sha512-XQHJNlF6AuJgVPYL8mEWrYk4Pg/FoP9PryTVSObtf/SWRIk0dCBkIwSaGGoXa1VDrLVWl/dIP79FgS2acJJjdg==
+
+"@grammyjs/types@3.16.0":
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.16.0.tgz#11146a393be84e0368a3bee261dc00b090e8405e"
+  integrity sha512-hElpAJL7/p8PnHvOM0K8+iU0lrVqFgVHzsAknNomZXWT9sFyj5tmEmsAM0JCYBTNvWx5/g5jWU87+PlgUDZ/YA==
 
 "@hono/node-server@1.13.6":
   version "1.13.6"
