@@ -376,6 +376,11 @@
   resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.16.0.tgz#11146a393be84e0368a3bee261dc00b090e8405e"
   integrity sha512-hElpAJL7/p8PnHvOM0K8+iU0lrVqFgVHzsAknNomZXWT9sFyj5tmEmsAM0JCYBTNvWx5/g5jWU87+PlgUDZ/YA==
 
+"@grammyjs/types@3.17.0":
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.17.0.tgz#173e7c3d4b898c745d27c8704bf32e1b501e94bf"
+  integrity sha512-e8AR3xQwRAFX248E7Qw/7mIu1OzvoXloJzOBJVtuPKzzL7tGkn5trZAdZUBgGViVQg5ZwVS/x9N2nRrcyH/DfA==
+
 "@hono/node-server@1.13.7":
   version "1.13.7"
   resolved "https://registry.yarnpkg.com/@hono/node-server/-/node-server-1.13.7.tgz#af95cf97bd24ddffc97e72851738cbde0a98c791"
