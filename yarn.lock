@@ -353,10 +353,10 @@
     "@fluent/bundle" "^0.17.1"
     "@fluent/langneg" "^0.6.2"
 
-"@grammyjs/parse-mode@1.10.0":
-  version "1.10.0"
-  resolved "https://registry.npmjs.org/@grammyjs/parse-mode/-/parse-mode-1.10.0.tgz"
-  integrity sha512-ZjbY2Ax0b4Nf8lPz3NV0cWDxUC10kOkzgxws+iTdgG+hAiPQVUnP/oJnAKrW1ZQOWULZYQ4GOR/+aCZHyUuLQA==
+"@grammyjs/parse-mode@1.11.1":
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/@grammyjs/parse-mode/-/parse-mode-1.11.1.tgz#0287d43cce98290041d9bcec4ef679b7ba548fa7"
+  integrity sha512-7yEKVtXjNZsG8EX/AOtgR/7Af5QxcmAcTB31Nju+QELvL2uSQMJKlix5rkx695gqocUodLwWtuwCDGDoXGD2xg==
 
 "@grammyjs/runner@2.0.3":
   version "2.0.3"
