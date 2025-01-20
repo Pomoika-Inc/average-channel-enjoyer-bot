@@ -1771,10 +1771,10 @@ help-me@^5.0.0:
   resolved "https://registry.npmjs.org/help-me/-/help-me-5.0.0.tgz"
   integrity sha512-7xgomUX6ADmcYzFik0HzAxh/73YlKR9bmFzf51CZwR+b6YtzU2m0u49hQCqV6SvlqIqsaxovfwdvbnsw3b/zpg==
 
-hono@4.6.16:
-  version "4.6.16"
-  resolved "https://registry.yarnpkg.com/hono/-/hono-4.6.16.tgz#f31396b3aa8b66001937d5e8e69e2a7125ab0ec8"
-  integrity sha512-iE6xOPwDYlfnZFwk6BfIMMIH4WZm3pPhz6rc1uJM/OPew0pjG5K6p8WTLaMBY1/szF/T0TaEjprMpwn16BA0NQ==
+hono@4.6.17:
+  version "4.6.17"
+  resolved "https://registry.yarnpkg.com/hono/-/hono-4.6.17.tgz#143b9cba563caaf37584cecc25166c9450ea47cc"
+  integrity sha512-Kbh4M0so2RzLiIg6iP33DoTU68TdvP2O/kb1Hhhdwa37fazuf402ig8ZRfjkz2dqXwiWl2dAgh0f++TuKAdOtQ==
 
 hosted-git-info@^2.1.4:
   version "2.8.9"
