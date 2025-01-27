@@ -46,7 +46,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "3.14.0",
     "@types/node": "^22.10.10",
-    "eslint": "^9.18.0",
+    "eslint": "^9.19.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.1",
     "tsc-watch": "^6.2.1",
