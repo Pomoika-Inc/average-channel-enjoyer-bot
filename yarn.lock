@@ -377,11 +377,6 @@
   dependencies:
     abort-controller "^3.0.0"
 
-"@grammyjs/types@3.18.0":
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.18.0.tgz#2f6f474e29e0a1a96883fb93e6d97a8e77f45bde"
-  integrity sha512-/VpQcT6Z0+Lw6H6jv2JvnDmqB1/9rjbFdDBlPBPUW3kQ1bWfjzfaiVk2+J2eiid3o3sLaPp3ZK0XjEI1gWNc3g==
-
 "@grammyjs/types@3.19.0":
   version "3.19.0"
   resolved "https://registry.yarnpkg.com/@grammyjs/types/-/types-3.19.0.tgz#7435f34ca607649b98a6d8c76f364b2067da6293"
