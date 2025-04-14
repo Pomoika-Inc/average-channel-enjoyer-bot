@@ -29,7 +29,7 @@
     "@grammyjs/i18n": "1.1.2",
     "@grammyjs/parse-mode": "1.11.1",
     "@grammyjs/runner": "2.0.3",
-    "@grammyjs/types": "3.19.0",
+    "@grammyjs/types": "3.20.0",
     "@hono/node-server": "1.14.0",
     "@ton/core": "^0.60.1",
     "@ton/crypto": "^3.3.0",
